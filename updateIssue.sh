@@ -4,13 +4,12 @@ REPOS=(
   # Here goes the repos that you want to edit the issue in.
   # Have to be written in the format
   # Owner/reponame
-
 )
 
 ISSUES=(
   # Here goes the issues you want to change
   # Have to be written in the format
-  # issue number / newissue
+  # issue number/newissue
 )
 
 echo "Starting updating issues"
@@ -37,8 +36,8 @@ for REPO in "${REPOS[@]}"; do
 
     FILEPATH="../issues/$FILE"
 
-    if [ -f "$FILE" ]; then
-      gh issue edit "$NUMBER" --body "$FILE"
+    if [ -f "$FILEPATH" ]; then
+      gh issue edit "$NUMBER" --body-file "$FILEPATH"
       echo "Updated issue $NUMBER with $FILEPATH"
     else
       echo "Error: could not find $FILEPATH"
