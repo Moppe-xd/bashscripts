@@ -50,6 +50,9 @@ for REPO in "${REPOS[@]}"; do
     sleep 1
   done
 
+  #Goes back to the root dirctory and deletes the git repo
+  #Solves the problem with repos with the same name
   cd ..
+  rm -rf "${REPO##*/}"
 
 done
